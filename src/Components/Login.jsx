@@ -8,7 +8,7 @@ const Login = () => {
         { username: "", password: "" }
     )
 
-    const navigate=useNavigate()
+    const navigate = useNavigate()
 
     const apiLink = "http://localhost:3001/loginc"
 
@@ -20,17 +20,16 @@ const Login = () => {
         console.log(inputField)
         axios.post(apiLink, inputField).then(
             (Response) => {
-                if (Response.username=="admin" && Response.password=="admin") {
-                    navigate("/viewac")
-                } 
-                else {
-                    if (Response.data.status=="success") {
+                if (Response.data.status == "success") {
+                    if (Response.data.data.username == "admin") {
+                        navigate("/viewac")
+                    } else {
                         let userid = Response.data.data._id
                         sessionStorage.setItem("userid", userid)
                         navigate("/addc")
-                    } else {
-                        alert(Response.data.status)
                     }
+                } else {
+                    alert(Response.data.status)
                 }
             }
         )
