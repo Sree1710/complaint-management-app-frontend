@@ -9,7 +9,7 @@ const ViewMyComplaint = () => {
     const apiLink = "http://localhost:3001/viewmc"
 
     const getData = () => {
-        let userid = sessionStorage.getItem("userid")
+        let userid = {"compId":sessionStorage.getItem("userid")}
         axios.post(apiLink, userid).then(
             (Response) => {
                 setCompData(Response.data)
