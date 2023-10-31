@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 
 const AddComplaint = () => {
     const [inputField,setInputField]=useState(
-        {compId:sessionStorage.getItem(userid),compTitle:"",compDesc:"",compLocation:"",compDate:"",Remarks:"",Status:"0"}
+        {compId:sessionStorage.getItem("userid"),compTitle:"",compDesc:"",compLocation:"",compDate:"",Remarks:"",Status:"0"}
     )
     
     const apiLink="http://localhost:3001/addc"
