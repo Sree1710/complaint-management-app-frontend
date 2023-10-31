@@ -1,5 +1,5 @@
 import axios from 'axios'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import NavBar1 from './NavBar1'
 
 const ViewMyComplaint = () => {
@@ -17,6 +17,8 @@ const ViewMyComplaint = () => {
             }
         )
     }
+
+    useEffect(()=>{getData()},[])
 
     return (
         <div>
