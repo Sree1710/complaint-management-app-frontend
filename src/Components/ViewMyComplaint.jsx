@@ -1,5 +1,5 @@
 import axios from 'axios'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 const ViewMyComplaint = () => {
     const [compData, setCompData] = useState(
@@ -16,6 +16,8 @@ const ViewMyComplaint = () => {
             }
         )
     }
+
+    useEffect(()=>{getData()},[])
 
     return (
         <div>
