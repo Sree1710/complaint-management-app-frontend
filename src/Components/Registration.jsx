@@ -10,7 +10,7 @@ const Registration = () => {
 
     const apiLink="http://localhost:3001/regc"
 
-    // const navigate=useNavigate()
+    const navigate=useNavigate()
 
     const inputHandler=(event)=>{
         setInputField({...inputField,[event.target.name]:event.target.value})
@@ -24,7 +24,7 @@ const Registration = () => {
                     if (Response.data.status=="success") {
                         alert("User Registered Successfully!!!")
                         setInputField({name:"",dob:"",age:"",address:"",mobileNumber:"",username:"",password:""})
-                        // navigate("/")
+                        navigate("/")
                     } else {
                         alert("Something Went Wrong!!!")
                     }
