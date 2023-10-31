@@ -10,7 +10,7 @@ const ViewMyComplaint = () => {
     const apiLink = "http://localhost:3001/viewmc"
 
     const getData = () => {
-        let userid = sessionStorage.getItem("userid")
+        let userid = {"compId":sessionStorage.getItem("userid")}
         axios.post(apiLink, userid).then(
             (Response) => {
                 setCompData(Response.data)
@@ -33,7 +33,7 @@ const ViewMyComplaint = () => {
                             </div>
                             {compData.map(
                                 (value, index) => {
-                                    return <div className="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
+                                    return <div className="col col-12 col-sm-6 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
                                         <div class="card">
                                             <div class="card-body">
                                                 <h5 class="card-title">Complaint ID: {value.compId}</h5>
