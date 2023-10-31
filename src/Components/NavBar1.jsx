@@ -18,12 +18,12 @@ const NavBar1 = () => {
                                 <a class="nav-link" href="/viewmc">View My Complaint</a>
                             </li>
                         </ul>
-                        <ul class="nav justify-content-end">
-                            <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="/">Sign Out</a>
-                            </li>
-                        </ul>
                     </div>
+                    <ul class="nav justify-content-end">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="/">Sign Out</a>
+                        </li>
+                    </ul>
                 </div>
             </nav>
         </div>
