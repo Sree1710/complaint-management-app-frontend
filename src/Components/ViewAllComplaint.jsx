@@ -1,6 +1,7 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import NavBar2 from './NavBar2'
+import { useNavigate } from 'react-router-dom'
 
 const ViewAllComplaint = () => {
     const [compData, setCompData] = useState(
@@ -16,6 +17,9 @@ const ViewAllComplaint = () => {
             }
         )
     }
+
+
+    
 
     useEffect(() => { getData() }, [])
 
@@ -40,8 +44,8 @@ const ViewAllComplaint = () => {
                                                 <p class="card-text"><h5>Location: </h5>{value.compLocation}</p>
                                                 <p class="card-text"><h5>Complaint Posted Date: </h5>{value.compDate}</p>
                                                 <p class="card-text"><h5>Remarks: </h5>{value.Remarks}</p>
-                                                <p class="card-text"><h5>Status: </h5>{value.Status}</p>
-                                                <a href="#" class="btn btn-primary">Add Remarks</a>
+                                                {value.Status==0 ? <p class="card-text"><h5>Status: </h5>Processing</p> : <p class="card-text"><h5>Status: </h5>Issue Resolved</p> }
+                                                <a href={'/addr/'+value._id}  class="btn btn-primary">Add Remarks</a>
                                             </div>
                                         </div>
                                     </div>

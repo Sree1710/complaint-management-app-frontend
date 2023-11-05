@@ -5,6 +5,7 @@ import Registration from './Components/Registration';
 import ViewAllComplaint from './Components/ViewAllComplaint';
 import Login from './Components/Login';
 import ViewMyComplaint from './Components/ViewMyComplaint';
+import AddRemark from './Components/AddRemark';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path='/addc' exact element={<AddComplaint/>} />
         <Route path='/viewac' exact element={<ViewAllComplaint/>} />
         <Route path='/viewmc' exact element={<ViewMyComplaint/>} />
+        <Route path='/addr/:cid' exact element={<AddRemark/>} />
       </Routes>
       </BrowserRouter>
     </div>
