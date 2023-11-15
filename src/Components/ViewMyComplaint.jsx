@@ -7,20 +7,21 @@ const ViewMyComplaint = () => {
         []
     )
 
-    const [deleteField,setDeleteField]=useState(
-        {_id:"",compId:"",compTitle:"",compDesc:"",compLocation:"",compDate:"",Remarks:"",Status:"0"}
+    const [deleteField, setDeleteField] = useState(
+        { _id: "", compId: "", compTitle: "", compDesc: "", compLocation: "", compDate: "", Remarks: "", Status: "0" }
     )
 
-    const deleteHandler=(event)=>{
-        setDeleteField({...deleteField,[event.target.name]:event.target.value})
+    const deleteHandler = (event) => {
+        setDeleteField({ ...deleteField, [event.target.name]: event.target.value })
     }
 
     const apiLink = "http://localhost:3001/viewmc"
-    const apiLink2="http://localhost:3001/deletec"
+    const apiLink2 = "http://localhost:3001/deletec"
 
     const getData = () => {
-        let userid = {"compId":sessionStorage.getItem("userid")}
-        axios.post(apiLink, userid).then(
+        let userid = { "compId": sessionStorage.getItem("userid") }
+        let token = { "token": sessionStorage.getItem("token") }
+        axios.post(apiLink, userid, token).then(
             (Response) => {
                 setCompData(Response.data)
                 setDeleteField(Response.data[0])
@@ -28,11 +29,11 @@ const ViewMyComplaint = () => {
         )
     }
 
-    const deleteValue=(id)=>{
-        let data={"_id":id}
-        axios.post(apiLink2,data).then(
-            (Response)=>{
-                if (Response.data.status=="success") {
+    const deleteValue = (id) => {
+        let data = { "_id": id }
+        axios.post(apiLink2, data).then(
+            (Response) => {
+                if (Response.data.status == "success") {
                     alert("Complaint deleted successfully!!!")
                     getData()
                 } else {
@@ -42,11 +43,11 @@ const ViewMyComplaint = () => {
         )
     }
 
-    useEffect(()=>{getData()},[])
+    useEffect(() => { getData() }, [])
 
     return (
         <div>
-            <NavBar1/>
+            <NavBar1 />
             <div className="container">
                 <div className="row">
                     <div className="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
@@ -67,7 +68,7 @@ const ViewMyComplaint = () => {
                                                 <p onChange={deleteHandler} class="card-text" name="compDate" value={deleteField.compDate} ><h5>Complaint Posted Date: </h5>{value.compDate}</p>
                                                 <p onChange={deleteHandler} class="card-text" name="Remarks" value={deleteField.Remarks} ><h5>Remarks: </h5>{value.Remarks}</p>
                                                 <p onChange={deleteHandler} class="card-text" name="Status" value={deleteField.Status} ><h5>Status: </h5>{value.Status}</p>
-                                                <a onClick={()=>{deleteValue(value._id)}} class="btn btn-primary">Delete</a>
+                                                <a onClick={() => { deleteValue(value._id) }} class="btn btn-primary">Delete</a>
                                             </div>
                                         </div>
                                     </div>

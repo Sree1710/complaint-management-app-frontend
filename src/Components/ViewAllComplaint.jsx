@@ -1,7 +1,6 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import NavBar2 from './NavBar2'
-import { useNavigate } from 'react-router-dom'
 
 const ViewAllComplaint = () => {
     const [compData, setCompData] = useState(
@@ -11,7 +10,8 @@ const ViewAllComplaint = () => {
     const apiLink = "http://localhost:3001/viewac"
 
     const getData = () => {
-        axios.get(apiLink).then(
+        let token = {"token":sessionStorage.getItem("token")}
+        axios.post(apiLink,token).then(
             (Response) => {
                 setCompData(Response.data)
             }

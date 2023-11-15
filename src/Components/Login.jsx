@@ -22,10 +22,14 @@ const Login = () => {
             (Response) => {
                 if (Response.data.status == "success") {
                     if (Response.data.data.username == "admin") {
+                        let token = Response.data.token
+                        sessionStorage.setItem("token",token)
                         navigate("/viewac")
                     } else {
                         let userid = Response.data.data._id
+                        let token = Response.data.token
                         sessionStorage.setItem("userid", userid)
+                        sessionStorage.setItem("token", token)
                         navigate("/addc")
                     }
                 } else {
