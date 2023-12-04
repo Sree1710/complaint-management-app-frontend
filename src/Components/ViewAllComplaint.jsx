@@ -7,7 +7,7 @@ const ViewAllComplaint = () => {
         []
     )
 
-    const apiLink = "http://localhost:3001/viewac"
+    const apiLink = "http://3.7.243.160:3001/viewac"
 
     const getData = () => {
         let token = {"token":sessionStorage.getItem("token")}

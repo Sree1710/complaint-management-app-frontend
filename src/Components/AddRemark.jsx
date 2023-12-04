@@ -25,8 +25,8 @@ const AddRemark = () => {
         )
     }
 
-    const apiLink = "http://localhost:3001/getcompdata"
-    const apiLink2 = "http://localhost:3001/updateac"
+    const apiLink = "http://3.7.243.160:3001/getcompdata"
+    const apiLink2 = "http://3.7.243.160:3001/updateac"
 
     const navigate = useNavigate()
 

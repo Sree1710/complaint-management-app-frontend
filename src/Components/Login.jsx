@@ -10,7 +10,7 @@ const Login = () => {
 
     const navigate = useNavigate()
 
-    const apiLink = "http://localhost:3001/loginc"
+    const apiLink = "http://3.7.243.160:3001/loginc"
 
     const inputHandler = (event) => {
         setInputField({ ...inputField, [event.target.name]: event.target.value })

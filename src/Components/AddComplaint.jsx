@@ -7,7 +7,7 @@ const AddComplaint = () => {
         {compId:sessionStorage.getItem("userid"),compTitle:"",compDesc:"",compLocation:"",compDate:"",Remarks:"",Status:"0"}
     )
     
-    const apiLink="http://localhost:3001/addc"
+    const apiLink="http://3.7.243.160:3001/addc"
 
     const inputHandler=(event)=>{
         setInputField({...inputField,[event.target.name]:event.target.value})
